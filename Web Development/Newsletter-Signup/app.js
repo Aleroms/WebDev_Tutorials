@@ -29,7 +29,7 @@ app.post("/",function(req,res){
 		]
 	}
 
-	const url = "https://us2.api.mailchimp.com/3.0/lists/0ec3c4fc73";
+	const url; //commented
 
 	const options = {
 		method: "POST",
