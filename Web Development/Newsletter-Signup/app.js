@@ -7,6 +7,10 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.post("/failure", (req,res) => {
+	res.redirect("/");
+});
+
 app.post("/",function(req,res){
 	const firstName = req.body.firstName;
 	const lastName = req.body.lastName;
@@ -29,12 +33,20 @@ app.post("/",function(req,res){
 
 	const options = {
 		method: "POST",
-		auth: "santi:0a08a82749ad41f276e322f86a205244-us2",
+		auth: //commented,
 	};
 
 	const jsonData = JSON.stringify(data);
 
 	const request = https.request(url,options,function(response){
+
+		if(response.statusCode === 200){
+			res.sendFile(__dirname + "/success.html");
+		}
+		else{
+			res.sendFile(__dirname + "/failure.html");
+		}
+
 		response.on("data", function(data){
 			console.log(JSON.parse(data));
 		})
@@ -50,8 +62,7 @@ app.get("/",function(request,response){
 	console.log("file being requested on port 3000");
 	response.sendFile(__dirname + "/signup.html");
 })
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
 	console.log("server is running on port 3000");
 });
-//0a08a82749ad41f276e322f86a205244-us2
-//listid: 0ec3c4fc73
+
