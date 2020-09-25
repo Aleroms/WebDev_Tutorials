@@ -4,19 +4,23 @@ const app = express();
 
 app.set('view engine','ejs');
 
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.post("/",(req,res) => {
+	req.body.newItem;
+});
+
 app.get("/", (req,res) => {
-	var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 	var d = new Date();
-	var dayName = days[d.getDay()];
-
-
-	// if(today.getDay() === 6 || today.getDay() === 0){
-	// 	day = "weekend";
-	// }
-	// else{
-	// 	day = "weekday";
-	// }
-	res.render("list",{kindOfDay: dayName});
+	var options = {
+		weekday: "long",
+		day: "numeric",
+		month: "long"
+	};
+	var day = d.toLocaleDateString("en-US",options);
+	
+	res.render("list",{kindOfDay: day});
 });
 
 app.listen(3000,function(){
