@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //1st create a connection to database
-mongoose.connect("mongodb://localhost:27017/todoListDB",{
+mongoose.connect("mongodb+srv://admin-santi<PASSWORD>@cluster0.elfym.mongodb.net/todoListDB",{
 useUnifiedTopology: true, useNewUrlParser:true});
 //2nd create item schema
 const itemSchema = {
