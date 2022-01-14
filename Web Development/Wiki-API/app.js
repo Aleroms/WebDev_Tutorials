@@ -88,6 +88,28 @@ app.route("/articles/:articleTitle")
       else
         res.send(err);
     });
+})
+
+.patch(function(req,res){
+  //only updates the files requested as patch
+  Article.updateOne(
+    {title:req.params.articleTitle},
+    {$set: req.body}, function(err){
+      if(!err)
+        res.send("no errors");
+      else
+        res.send(err);
+    }
+  );
+})
+
+.delete(function(req,res){
+  Article.deleteOne({title:req.params.articleTitle},function(err){
+    if(!err)
+      res.send("Deleted " + req.params.articleTitle + " Successfully");
+    else
+      res.send(err);
+  });
 });
 
 app.listen(3000, function() {
