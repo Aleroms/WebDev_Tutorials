@@ -20,3 +20,7 @@ function DiceGame()
   else
     document.querySelector("h1").textContent = "Draw!";
 }
+function refreshPage()
+{
+  window.location.reload();
+}

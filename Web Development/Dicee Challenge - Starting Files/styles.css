@@ -3,29 +3,49 @@
   margin: auto;
   text-align: center;
 }
+*{
+  font-family: "Indie Flower", cursive;
+}
 
 .dice {
   text-align: center;
   display: inline-block;
-
+}
+.refresh {
+  text-align: center;
+  color: white;
+  margin-top: 5%;
+}
+.refresh button {
+  border: 2px dashed ;
+  color: white;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 2rem;
+  transition: 0.3s ease-in-out;
+}
+.refresh button:hover{
+  color: rgb(222, 66, 66);
+  
 }
 
 body {
-  background-color: #393E46;
+  background-color: #393e46;
 }
 
 h1 {
   margin: 30px;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   text-shadow: 5px 0 #232931;
   font-size: 8rem;
-  color: #4ECCA3;
+  color: #4ecca3;
 }
 
 p {
   font-size: 2rem;
-  color: #4ECCA3;
-  font-family: 'Indie Flower', cursive;
+  color: #4ecca3;
+
 }
 
 img {
@@ -34,8 +54,21 @@ img {
 
 footer {
   margin-top: 5%;
-  color: #EEEEEE;
+  color: #eeeeee;
   text-align: center;
-  font-family: 'Indie Flower', cursive;
-
+}
+@media(max-width: 992px) {
+  .container h1 {
+    font-size: 5rem;
+  }
+}
+@media(max-width: 768px) {
+  .container h1 {
+    font-size: 4rem;
+  }
+}
+@media(max-width: 600px) {
+  .container h1 {
+    font-size: 3rem;
+  }
 }
